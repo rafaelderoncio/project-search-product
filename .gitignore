@@ -1,0 +1,50 @@
+# .NET
+bin/
+obj/
+.vs/
+.vscode/
+appsettings.Development.json
+appsettings.Production.json
+appsettings.json
+project.lock.json
+project.fragment.lock.json
+docker-compose.override.yml
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Angular
+dist/
+tmp/
+.angular/
+
+# VS Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db

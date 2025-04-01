@@ -1,0 +1,30 @@
+services:
+
+  database:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.database
+    container_name: database
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    networks:
+      - catalog_network
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.backend
+    container_name: backend
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+    networks:
+      - catalog_network
+    depends_on:
+      - database
+networks:
+  catalog_network:
+    driver: bridge

@@ -1,0 +1,28 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+COPY . .
+
+WORKDIR "/src/backend/SearchService.API"
+
+RUN dotnet restore && dotnet build -c Release -o /app/build
+RUN dotnet publish -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+
+COPY --from=build /app/publish .
+
+# aspnetcore variebles
+ENV ASPNETCORE_HTTP_PORTS=5000
+ENV ASPNETCORE_ENVIRONMENT=Production
+
+# database variebles
+ENV DATABASE_HOST=database
+ENV DATABASE_PORT=5432
+ENV DATABASE_DATABASE=catalog
+ENV DATABASE_USERNAME=mscott
+ENV DATABASE_PASSWORD=mscott
+
+EXPOSE 5000
+
+ENTRYPOINT ["dotnet", "SearchService.API.dll"]

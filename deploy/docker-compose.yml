@@ -25,6 +25,21 @@ services:
       - catalog_network
     depends_on:
       - database
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.frontend
+    container_name: frontend
+    expose:
+      - 8080
+    ports:
+      - 8080:80
+    networks:
+      - catalog_network
+    depends_on:
+      - backend
+
 networks:
   catalog_network:
     driver: bridge

@@ -1,0 +1,19 @@
+FROM node:lts-slim AS build
+
+WORKDIR /app
+
+RUN npm install -g @angular/cli
+
+COPY src/frontend/package*.json ./
+
+RUN npm ci
+
+COPY src/frontend/ ./
+
+RUN ng build --configuration=production --project=angular-catalog-search
+
+FROM nginx:stable AS final
+
+EXPOSE 80
+
+COPY --from=build app/dist/angular-catalog-search/browser  /usr/share/nginx/html

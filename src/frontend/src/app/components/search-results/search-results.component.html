@@ -1,0 +1,10 @@
+<div class="results" role="listbox">
+    <div *ngFor="let product of results" 
+         role="option" 
+         tabindex="0" 
+         class="result-item"
+         (click)="productEventEmit(product)"
+         >
+      {{ product.name }}
+    </div>
+  </div>

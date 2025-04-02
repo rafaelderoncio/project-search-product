@@ -1,0 +1,52 @@
+/* Componente de busca */
+.search-container {
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 0.75rem;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    padding: 0.5rem;
+    min-width: 0;
+}
+
+.search-bar::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.search-button {
+    cursor: pointer;
+    padding: 0.5rem;
+    background: none;
+    border: 0;
+    color: inherit;
+    line-height: 0;
+    transition: var(--transition);
+}
+
+.search-button:hover {
+    opacity: 0.8;
+}
+
+.search-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+}

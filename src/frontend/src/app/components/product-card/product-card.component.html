@@ -1,0 +1,27 @@
+<article class="card" aria-live="polite" *ngIf="product">
+    <img [src]="product.image || getCategoryImage(product.category.name)" 
+         alt="Imagem do produto" class="card-image" loading="lazy" height="150" width="150">
+    
+    <div class="card-content">
+        <h2 class="card-title">{{ product.name }}</h2>
+        <p class="card-price">USD$ {{ product.price | number:'1.2-2' }}</p>
+        <p class="card-description">{{ product.description }}</p>
+        
+        <dl class="product-details">
+            <div class="category-stock">
+                <div>
+                    <dt>Brand</dt>
+                    <dd class="card-brand">{{ product.brand }}</dd>
+                </div>
+                <div>
+                    <dt>Category</dt>
+                    <dd class="card-category">{{ product.category.name || 'N/A' }}</dd>
+                </div>
+                <div>
+                    <dt>Stock</dt>
+                    <dd class="card-stock">{{ product.stock }}</dd>
+                </div>
+            </div>
+        </dl>
+    </div>
+</article>

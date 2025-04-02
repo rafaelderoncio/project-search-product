@@ -1,0 +1,18 @@
+
+.results {
+    /* max-height: 20rem; */
+    overflow-y: auto;
+    /* margin-top: 0.5rem; */
+}
+
+.results [role="option"] {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: calc(var(--border-radius) / 2);
+    transition: background-color 0.2s;
+}
+
+.results [role="option"]:hover,
+.results [role="option"]:focus-visible {
+    background-color: rgba(0, 0, 0, 0.05);
+}
